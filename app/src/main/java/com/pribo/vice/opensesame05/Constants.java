@@ -4,10 +4,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.HashMap;
 
-/**
- * Created by hidayeichler on 04/07/2017.
- */
-
 final class Constants {
 
     private Constants() {
@@ -35,8 +31,7 @@ final class Constants {
 
     static {
 
-        BAY_AREA_LANDMARKS.put("NofimGate", new LatLng(32.1542598, 35.1020015));
-        BAY_AREA_LANDMARKS.put("NofimHome", new LatLng(32.1542598, 35.1020015));
+        BAY_AREA_LANDMARKS.put("NofimGate", new LatLng(32.149512,35.1092797));
         BAY_AREA_LANDMARKS.put("HackerU", new LatLng(32.084403, 34.800743));
     }
 }

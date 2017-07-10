@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity
         if (!checkPermissions()) {
             showSnackbar(getString(R.string.insufficient_permissions));
             return;
-        }
+        }else
 
         mGeofencingClient.removeGeofences(getGeofencePendingIntent()).addOnCompleteListener(this);
     }

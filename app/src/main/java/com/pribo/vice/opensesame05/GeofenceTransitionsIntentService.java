@@ -79,7 +79,7 @@ public class GeofenceTransitionsIntentService extends IntentService {
         if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER ||
                 geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT) {
 
-           /* if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
+            /*if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
                 Log.d(TAG, "Entering Geofence - ");
                 Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: 0546277833"));
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -147,6 +147,7 @@ public class GeofenceTransitionsIntentService extends IntentService {
     private void sendNotification(String notificationDetails) {
         // Create an explicit content Intent that starts the main Activity.
         Intent notificationIntent = new Intent(getApplicationContext(), MainActivity.class);
+        //TODO: Try to use Context as THIS
 
         // Construct a task stack.
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
@@ -165,6 +166,8 @@ public class GeofenceTransitionsIntentService extends IntentService {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
         // Define the notification settings.
+
+        //TODO: Download Icons
         builder.setSmallIcon(R.drawable.ic_menu_send)
                 // In a real app, you may want to use a library like Volley
                 // to decode the Bitmap.
@@ -184,6 +187,28 @@ public class GeofenceTransitionsIntentService extends IntentService {
 
         // Issue the notification
         mNotificationManager.notify(0, builder.build());
+
+        makeCall();
+
+
+    }
+
+    private void makeCall(){
+        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: 0546277833"));
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        callIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+        startActivity(callIntent);
     }
 
     /**
