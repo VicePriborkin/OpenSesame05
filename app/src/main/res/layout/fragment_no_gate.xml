@@ -1,0 +1,21 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pribo.vice.opensesame05.NoGateFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/tvHello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Hello you should add same gates to your list "
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</FrameLayout>

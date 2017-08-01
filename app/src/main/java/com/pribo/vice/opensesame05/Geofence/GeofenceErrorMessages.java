@@ -1,10 +1,11 @@
-package com.pribo.vice.opensesame05;
+package com.pribo.vice.opensesame05.Geofence;
 
 import android.content.Context;
 import android.content.res.Resources;
 
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.location.GeofenceStatusCodes;
+import com.pribo.vice.opensesame05.R;
 
 
 public class GeofenceErrorMessages {

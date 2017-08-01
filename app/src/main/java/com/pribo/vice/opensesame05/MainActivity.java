@@ -1,6 +1,5 @@
 package com.pribo.vice.opensesame05;
 
-import android.*;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,11 +28,12 @@ import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.pribo.vice.opensesame05.Geofence.GeofenceErrorMessages;
+import com.pribo.vice.opensesame05.Geofence.GeofenceTransitionsIntentService;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +63,11 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this , MapsActivity.class);
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
             }
         });
 
